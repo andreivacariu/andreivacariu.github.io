@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow:
+Sitemap: eternalscapes.com/sitemap.xml

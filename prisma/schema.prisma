@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model capes {
+  id   String  @id @unique(map: "index_name") @db.VarChar(255)
+  type String  @default("free") @db.VarChar(255)
+  name String? @db.VarChar(255)
+}
+
+model cosmetics {
+  id          String  @id @unique(map: "cosmetics_name_uindex") @db.VarChar(255)
+  type        String? @default("free") @db.VarChar(10)
+  name        String? @db.VarChar(255)
+  description String? @db.VarChar(255)
+}
+
+model discord {
+  id       String? @db.VarChar(255)
+  username String  @id @unique(map: "discord_username_uindex") @db.VarChar(255)
+}
+
+model users {
+  minecraftUsername String  @unique(map: "users_minecraftUsername_uindex") @db.VarChar(20)
+  currentCape       String? @db.VarChar(22)
+  currentCosmetics  String? @default("[]") @db.VarChar(255)
+  inventory         String? @default("{\"capes\": [], \"cosmetics\": []}") @db.VarChar(255)
+}

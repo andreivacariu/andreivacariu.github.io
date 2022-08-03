@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+@layer utilities {
+  * {
+    @apply outline-none;
+  }
+  body {
+    @apply bg-bg-main;
+  }
+  .dropdown {
+    @apply  my-0 mx-auto relative cursor-pointer text-[12px] rounded-lg select-none
+  }
+
+  .dropdown-container {
+    @apply absolute top-[120%] right-0 w-[17em] p-1 bg-[#1f2020] shadow-2xl text-gray-100 rounded-lg
+  }
+
+  .dropdown-item {
+    @apply p-3 hover:bg-[#252525] cursor-pointer transition-all
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #1f1f1f;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #37b7b1;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #32a8a2;
+  }
+  .nav-button {
+    @apply text-gray-100 text-[16px] ml-1 mr-1 px-3 py-2 text-sm font-semibold leading-5 capitalize transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-800 cursor-pointer;
+  }
+
+  .slide {
+    @apply w-full p-2 m-3 mx-auto my-4 mt-2 overflow-hidden transition duration-300 ease-in-out transform rounded-lg shadow-lg max-w-[200px] bg-[#242424] bg-opacity-40 hover:-translate-y-1 hover:scale-105;
+  }
+  .search {
+    @apply w-full p-[15px] md:pl-[52px] font-semibold text-[#F0F0F0] placeholder-[#F0F0F0] placeholder-opacity-30 align-baseline border-0 bg-[#242424] focus:outline-none rounded-lg shadow-none;
+  }
+
+  .discord {
+    @apply text-gray-100 font-bold border-2 border-discord/50  hover:bg-opacity-80 hover:bg-white/[2%] py-[0.5em] px-[1.5em] rounded-lg text-[14px] transition duration-150 ease-in-out;
+  }
+}

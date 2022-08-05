@@ -32,7 +32,7 @@ const Navbar = () => {
                   Cosmetics
                 </NavLink>
                 <NavLink href="/users" className="nav-button">
-                  users
+                  Users
                 </NavLink>
                 <NavLink href="/download" className="nav-button">
                   Download

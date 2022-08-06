@@ -2,7 +2,7 @@ import Link from "next/link";
 import NavLink from "./NavLink";
 import Dropdown from "./Dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { useSession, signIn } from "next-auth/react";
 
 const Navbar = () => {
@@ -44,10 +44,10 @@ const Navbar = () => {
             <div>
               {!profile && (
                 <>
-                  <button className="discord" onClick={() => signIn("discord")}>
+                                  <button className="login" onClick={() => parent.location = '/login'}>
                     <a className="flex">
                       <FontAwesomeIcon
-                        icon={faDiscord}
+                        icon={faUser}
                         className="w-5 mr-4 mt-1"
                       />
                       <p> Sign in </p>

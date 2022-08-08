@@ -2,7 +2,7 @@ import Link from "next/link";
 import NavLink from "./NavLink";
 import Dropdown from "./Dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faDiscord } from "@fortawesome/free-solid-svg-icons";
 import { useSession, signIn } from "next-auth/react";
 
 const Navbar = () => {
@@ -40,32 +40,33 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <div className="absolute right-0">
-            <div>
-              {!profile && (
-                <>
-                                  <button className="login" onClick={() => parent.location = '/login'}>
-                    <a className="flex">
-                      <FontAwesomeIcon
-                        icon={faUser}
-                        className="w-5 mr-4 mt-1"
-                      />
-                      <p> Sign in </p>
-                    </a>
-                  </button>
-                </>
-              )}
+                  <div className="absolute right-0">
+                      <div>
+                          {!profile && (
+                              <>
+                                  <button className="discord" onClick={() => signIn("discord")}>
+                                      <a className="flex">
+                                          <FontAwesomeIcon
+                                              icon={faDiscord}
+                                              className="w-5 mr-4 mt-1"
+                                          />
+                                          <p> Sign in </p>
+                                      </a>
+                                  </button>
+                              </>
+                          )}
 
-              {profile && (
-                <>
-                  <div className="relative inline-block text-left">
-                    <div>
-                      <Dropdown img={profile.user.image} />
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
+                          {profile && (
+                              <>
+                                  <div className="relative inline-block text-left">
+                                      <div>
+                                          <Dropdown img={profile.user.image} />
+                                      </div>
+                                  </div>
+                              </>
+                          )}
+                      </div>
+
           </div>
         </div>
       </div>

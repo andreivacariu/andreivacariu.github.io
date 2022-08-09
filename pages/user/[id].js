@@ -18,7 +18,7 @@ export async function getServerSideProps(context) {
 
 const userPage = ({ user }) => {
   if(!user) return <Loading/>
-  var inventory = JSON.parse(user.inventory);
+  var cosmetics = JSON.parse(user.currentCosmetics);
   useEffect(() => {
     let aScript = document.createElement("script");
     aScript.src = "../../skinview3d.bundle.js";
@@ -110,7 +110,7 @@ const userPage = ({ user }) => {
                     </div>
                   </div>
                   <div className="flex flex-col w-full gap-2">
-                    <div className="flex flex-col w-full pb-2 h-1/2 bg-black/50 rounded-xl">
+                    <div className="flex flex-col w-full pb-2 h-3/5 bg-black/50 rounded-xl">
                       <p className="mt-2 ml-4 text-xl text-white text-bold">
                         Inventory
                       </p>
@@ -119,12 +119,12 @@ const userPage = ({ user }) => {
                       </p>
                       <hr className="mx-4 border-gray-200/25" />
                       <div className="p-4 grid grid-cols-4 gap-4">
-                                          {inventory.capes &&
-                            inventory.capes.map((cape) => {
+                                          {cosmetics &&
+                            cosmetics.map((img) => {
                               return (
                                   <img
-                                      className="w-28 bg-gray-600/[5%] cursor-pointer hover:bg-main/[10%] rounded-xl"
-                                      src={`https://api.eternalscapes.com/assets/preview/${cape}.png`}
+                                      className="w-44 bg-gray-600/[5%] cursor-pointer hover:bg-main/[10%] rounded-xl"
+                                      src={`https://api.eternalscapes.com/assets/preview/cosmetics/${img}.png`}
                                   />
                               );
                             })}

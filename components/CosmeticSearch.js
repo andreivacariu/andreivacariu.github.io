@@ -4,7 +4,7 @@ const CosmeticSearch = ({ cosmetic, url }) => {
   return (
     <div className="flex flex-col justify-between w-full p-2 m-2 mx-auto md:mx-0 my-4 mt-2 overflow-hidden transition duration-300 ease-in-out transform rounded-lg shadow-lg max-w-[200px] bg-black/25 hover:-translate-y-1 hover:scale-105">
       <div className="flex flex-col items-center justify-center">
-        <p className="flex items-center capitalize justify-center text-[1.2vw] font-semibold text-center text-gray-100">
+        <p className="flex items-center capitalize justify-center text-[1.1vw] font-semibold text-center text-gray-100">
           {cosmetic.name}
         </p>
         <div className="min-h-[200px] max-w-[200px] max-h-[200px] min-w-[200px] flex flex-grow">

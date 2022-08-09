@@ -67,7 +67,7 @@ const capes = () => {
           {res.map((item) => {
             return (
               <CapeSearch
-                url={`https://api.eternalscapes.com/assets/preview/capes/${item.id}.png`}
+                url={`https://api.eternalscapes.com/assets/preview/capes/${item.name}.png`}
                 cape={item}
               />
             );

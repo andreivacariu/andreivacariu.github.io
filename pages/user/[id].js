@@ -5,7 +5,7 @@ import Loading from "../../components/Loading";
 import Head from "next/head";
 export async function getServerSideProps(context) {
   const { id } = context.params;
-  const res = await fetch(`http://localhost:3000/api/v1/user/${id}`);
+    const res = await fetch(`http://localhost:3000/api/v1/user/${id}`);
   const data = await res.json();
 
 
@@ -31,16 +31,12 @@ const userPage = ({ user }) => {
         canvas: document.getElementById("skin_container"),
         width: 300,
         height: 400,
-        skin: `https://mc-heads.net/skin/${user.username}.png`
+        skin: `https://mc-heads.net/skin/${user.minecraftUsername}.png`
       });
-
-      skinViewer.loadCape("http://129.151.148.92/capes/"+user.username+".png",{}).catch(e=>{console.error(e);});
-
+   
       var keys = Object.keys(skinViewer);
-
-
-
-      skinViewer.fov = 70;
+        skinViewer.loadCape(`http://129.151.135.15/capes/${user.minecraftUsername}.png`).catch(e => { console.error("help idiot " + e); });
+      skinViewer.fov = 90;
 
       let control = skinview3d.createOrbitControls(skinViewer);
       control.enableRotate = true;
@@ -49,9 +45,8 @@ const userPage = ({ user }) => {
       skinViewer.animations.add(skinview3d.RotatingAnimation);
     };
   }, []);
-var test = user.username + " - Eternals Capes";
-var test2 = user.username;
-var url = "https://eternalscapes.com/user/"+user.username;
+    var test = user.minecraftUsername + " - Eternals Capes";
+    var url = "https://eternalscapes.com/user/" + user.minecraftUsername;
   return (
       <>
         <div className="w-full h-full overflow-hidden">
@@ -82,11 +77,11 @@ var url = "https://eternalscapes.com/user/"+user.username;
                         <div className="ml-2 cursor-pointer w-9">
                           <img
                               className="rounded-md"
-                              src={`https://mc-heads.net/avatar/${user.username}`}
+                                                  src={`https://mc-heads.net/avatar/${user.minecraftUsername}`}
                           />
                         </div>
                         <div className="flex items-center ml-2 text-2xl font-bold text-white">
-                          {user.username}
+                                              {user.minecraftUsername}
                         </div>
                       </div>
                     </div>
@@ -120,11 +115,11 @@ var url = "https://eternalscapes.com/user/"+user.username;
                         Inventory
                       </p>
                       <p className="mb-2 ml-4 text-xs text-white opacity-60">
-                        {user.username}'s exlusive cape collection
+                                          {user.minecraftUsername}'s exlusive cape collection
                       </p>
                       <hr className="mx-4 border-gray-200/25" />
                       <div className="p-4 grid grid-cols-4 gap-4">
-                        {inventory.capes &&
+                                          {inventory.capes &&
                             inventory.capes.map((cape) => {
                               return (
                                   <img

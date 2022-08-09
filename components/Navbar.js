@@ -2,7 +2,7 @@ import Link from "next/link";
 import NavLink from "./NavLink";
 import Dropdown from "./Dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord } from "@fortawesome/free-solid-svg-icons";
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { useSession, signIn } from "next-auth/react";
 
 const Navbar = () => {

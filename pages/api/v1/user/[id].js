@@ -14,7 +14,7 @@ export default async function handle(req, res) {
 
 async function handleGET(userId, res) {
   const users = await prisma.users.findMany();
-  const user = users.filter((x) => x.username == userId);
+  const user = users.filter((x) => x.minecraftUsername == userId);
   if (!user) {
   }
   return res.status(200).json(user[0]);

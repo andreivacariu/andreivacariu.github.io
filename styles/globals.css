@@ -51,7 +51,7 @@
     @apply w-full p-[15px] md:pl-[52px] font-semibold text-[#F0F0F0] placeholder-[#F0F0F0] placeholder-opacity-30 align-baseline border-0 bg-[#242424] focus:outline-none rounded-lg shadow-none;
   }
 
-  .login {
+  .discord {
     @apply text-gray-100 font-bold border-2 border-discord/50  hover:bg-opacity-80 hover:bg-white/[2%] py-[0.5em] px-[1.5em] rounded-lg text-[14px] transition duration-150 ease-in-out;
   }
 }

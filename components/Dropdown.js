@@ -25,6 +25,13 @@ const Dropdown = ({ img }) => {
             />
             View Profile
           </a>
+          <a href={`/linkmc`} className="dropdown-item flex items-center gap-x-3">
+            <FontAwesomeIcon
+              icon={faUserAlt}
+              className="w-4"
+            />
+            Link MC
+          </a>
           <div className="dropdown-item flex items-center gap-3 hover:text-[#e03434]" onClick={e=> {signOut()}}>
             <FontAwesomeIcon
               icon={faSignOutAlt}

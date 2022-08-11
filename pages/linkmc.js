@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import { useSession, signIn } from "next-auth/react";
 
 
+
 export default Login;
 
 function Login() {
+
     const { data: profile } = useSession()
 
     const [data, setData] = useState({
@@ -13,16 +15,25 @@ function Login() {
         otp: ""
     })
 
-    const { username, otp } = data;
+    const { username, otp} = data;
 
     const changeHandler = e => {
         setData({ ...data, [e.target.name]: [e.target.value] });
     }
-    
     const submitHandler = e => {
         e.preventDefault();
-        console.log(data);
+        fetch('http://129.151.135.15/api/v2/supersecretsection/' + data.username + '/' + data.otp)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .then(response => {
+                    if (response)
+                        console.log("suuccess");
+                    else
+                        console.log("not ggs");
+                });
     }
+
+    
         return (
             <div className="pt-16">
                 <Head>

@@ -15,6 +15,9 @@ module.exports = {
   },
   variants: {
     extend: {},
-  },
+    },
+  safelist: [
+    'justify-end',
+  ],
   plugins: [],
 }

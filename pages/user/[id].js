@@ -17,7 +17,8 @@ export async function getServerSideProps(context) {
 }
 
 const userPage = ({ user }) => {
-  if(!user) return <Loading/>
+    if (!user) return <Loading />
+    console.log(user);
   var cosmetics = JSON.parse(user.currentCosmetics);
   useEffect(() => {
     let aScript = document.createElement("script");

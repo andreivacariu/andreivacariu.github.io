@@ -27,7 +27,22 @@ model discord {
 
 model users {
   minecraftUsername String  @unique(map: "users_minecraftUsername_uindex") @db.VarChar(20)
+  discordID         Int?
   currentCape       String? @db.VarChar(22)
   currentCosmetics  String? @default("[]") @db.VarChar(255)
   inventory         String? @default("{\"capes\": [], \"cosmetics\": []}") @db.VarChar(255)
+  email             String? @db.Text
+}
+
+model accounts {
+  uuid       String    @id @unique(map: "accounts_uuid_uindex") @db.VarChar(36)
+  username   String?   @db.TinyText
+  email      String?   @db.TinyText
+  last_login DateTime? @db.Timestamp(0)
+}
+
+model otps {
+  account String    @id @unique(map: "otps_account_uindex") @db.VarChar(36)
+  code    Int?
+  issued  DateTime? @db.Timestamp(0)
 }

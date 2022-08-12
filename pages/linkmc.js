@@ -1,15 +1,15 @@
 import Head from "next/head";
 import React, { useState } from 'react';
 import { useSession, signIn } from "next-auth/react";
-
+const { toast, snackbar } = require('tailwind-toast')
 
 
 export default Login;
 
 function Login() {
-
+    
     const { data: profile } = useSession()
-
+    
     const [data, setData] = useState({
         username: "",
         otp: ""
@@ -24,15 +24,34 @@ function Login() {
         e.preventDefault();
         fetch('http://129.151.135.15/api/v2/supersecretsection/' + data.username + '/' + data.otp)
             .then(response => response.json())
-            .then(response => console.log(response))
             .then(response => {
-                    if (response)
-                        console.log("suuccess");
-                    else
-                        console.log("not ggs");
+                if (response) { 
+                console.log("suuccess");
+            }
+                else
+                    toast().default('ERROR', 'Incorrect username or OTP!').with({
+                        shape: 'pill',
+                        duration: 4000,
+                        speed: 1000,
+                        positionX: 'center',
+                        positionY: 'center',
+                        color: 'bg-red-500',
+                        fontColor: 'blue',
+                        fontTone: 200
+                    }).show()
                 });
     }
-
+    if (profile)
+        fetch(`http://localhost:3000/api/v1/discord/${profile.profile.id}`)
+            .then(response => {
+                if (response)
+                    response.json();
+                else
+                    console.log("no profile");
+        })
+        .then(response => console.log(response))
+        .then(response => {
+        });
     
         return (
             <div className="pt-16">
@@ -138,7 +157,9 @@ function Login() {
                     </>
                 )}
                 
+                
             </div>
         );                                      
     
 }
+

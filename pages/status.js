@@ -59,7 +59,7 @@ function Login() {
                             <div class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-300 rounded-lg shadow-2xl px-7">
                                 <h3 class="mb-6 text-2xl font-medium text-center">System status</h3>
                                 <h2 class="mb-6 text-2xl font-medium">Server 1 ONLINE</h2>
-                                <h2 class="mb-6 text-2xl font-medium">Server 2 OFFLINE</h2>
+                                <h2 class="mb-6 text-2xl font-medium">Server 2 ONLINE</h2>
                                         <div class="block">
                                             <button class="w-full px-3 py-4 font-medium text-white bg-blue-600 rounded-lg">Report downtime</button>
                                         </div>

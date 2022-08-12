@@ -13,7 +13,7 @@ export default function App({
 }) {
   return (
     <SessionProvider session={session}>
-      <Layout>
+          <Layout>
       <Component {...pageProps} />
       </Layout>
       <Footer/>
